@@ -254,6 +254,8 @@ function isOrderFillable(order) {
         return { fillable: false, reason: e.message }
     }
     if (side == 's' && price > quote.quotePrice) {
+        // 卖单，用户订单中的价格与机器人的预期价格不一致
+        // price 是
         return { fillable: false, reason: "badprice" };
     }
     else if (side == 'b' && price < quote.quotePrice) {
